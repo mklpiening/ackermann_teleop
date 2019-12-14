@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="joy" type="joy_node" name="joy" ouput="screen">
+        <param name="autorepeat_rate" value="1"/>
+        <param name="deadzone" value="0"/>
+    </node>
+
+    <node pkg="ackermann_teleop" type="ackermann_teleop_joy" name="ackermann_teleop_joy" output="screen">
+        <param name="max_speed" value="3"/>
+        <param name="max_steering_angle" value="3.141"/>
+        <param name="cmd_pub" value="ackermann_cmd"/>
+        <param name="cmd_publish_rate" value="0.2"/>
+        <param name="input_timeout" value="1.2"/>
+        
+        <param name="joy_topic" value="joy"/>
+    </node>
+
+</launch>
